@@ -61,7 +61,7 @@ export class BackendService {
     return of(this.findTaskById(id)).pipe(delay(randomDelay()));
   }
 
-  users() {
+  users(): Observable<User[]> {
     return of(this.storedUsers).pipe(delay(randomDelay()));
   }
 

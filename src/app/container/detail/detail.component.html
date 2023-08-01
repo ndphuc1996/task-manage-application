@@ -1,0 +1,21 @@
+<ng-container *ngIf="(currentTask$ | async) as currentTask">
+    <div><b>Task: {{currentTask.description}}</b></div>
+    <div>Status: {{currentTask.completed ? 'Completed' : 'InProgress'}}</div>
+    <div class="input-wrapper">
+        <span>Assignee:</span>
+        <form class="example-form">
+            <input type="text"
+                   placeholder="Search a assignee"
+                   [formControl]="control"
+                   [(ngModel)]="assigneeName"
+                   [matAutocomplete]="auto"
+                   class="example-input">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event, currentTask.id)">
+              <mat-option *ngFor="let user of filteredOptions$ | async" [value]="user.name" [id]="user.id">
+                {{user.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </form>
+    </div>
+    <button mat-raised-button color="primary" (click)="completeTask(currentTask.id)">Complete</button>
+</ng-container>

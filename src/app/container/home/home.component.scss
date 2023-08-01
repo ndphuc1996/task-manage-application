@@ -1,0 +1,31 @@
+:host {
+  height: 100%;
+
+  .wrapper {
+    height: 100%;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-content: flex-start
+  }
+
+  .header {
+    display: inline-flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    margin-bottom: 24px;
+  }
+
+  input {
+    padding: 8px;
+    width: 100%;
+    max-width: 150px;
+    border-radius: 4px;
+    border-width: 1px;
+    margin: 16px;
+  }
+}

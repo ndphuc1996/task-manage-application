@@ -1,0 +1,12 @@
+<div class="header">
+  <span>Search: </span>
+  <input matInput [(ngModel)]="keywordSearch" (input)="search()" />
+</div>
+<button id="add-new-task" (click)="addNewTask(newTaskDescription)" mat-raised-button color="primary">Add New Task</button>
+<input id="new-task" matInput [(ngModel)]="newTaskDescription"/>
+
+<div class="wrapper">
+<ng-container *ngFor="let task of (filteredTasks$ | async)">
+    <card (click)="goToItems(task.id)" [id]="task.id" [name]="task.description"></card>
+  </ng-container>
+</div>

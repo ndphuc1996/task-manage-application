@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import {BackendService} from './backend.service';
+import {BackendService, User} from './backend.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   tasks = this.backend.tasks();
-  users = this.backend.users();
+  users: Observable<User[]> = this.backend.users();
 
   constructor(private backend: BackendService) {}
 }

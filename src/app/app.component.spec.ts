@@ -1,6 +1,7 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {BackendService} from "./backend.service";
+import { TaskService } from './store/services/task.service';
 
 describe('AppComponent', () => {
     beforeEach(waitForAsync(() => {
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
                 AppComponent
             ],
             providers: [
-                {provide: BackendService, useValue: new BackendService()}
+                {provide: BackendService, useValue: new BackendService()},
             ]
 
         }).compileComponents();
@@ -19,12 +20,5 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
-    }));
-
-    it('should render title in a h1 tag', (() => {
-        const fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h2').textContent).toContain('Tasks');
     }));
 });
